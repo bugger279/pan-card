@@ -102,7 +102,7 @@ app.post("/upload", (req, res) => {
 
 app.post('/postingData');
 
-app.listen(5000, (err) => {
+app.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     console.log(err.message);
   } else {
