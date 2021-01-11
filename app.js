@@ -100,8 +100,9 @@ app.post("/upload", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3002, (err) => {
-  console.log(process.env.PORT);
+app.post('/postingData');
+
+app.listen(5000, (err) => {
   if (err) {
     console.log(err.message);
   } else {
