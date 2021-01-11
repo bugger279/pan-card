@@ -117,7 +117,21 @@ function recognizeFile(file) {
       progressUpdate(packet);
     })
     .then(function (data) {
-      console.log(data.confidence);
+      console.log(data);
+      console.log(data.lines);
+      
+      $.ajax({
+        type: 'POST',
+        url: 'https://pan-card.herokuapp.com/postingData',
+        data: { 
+            'index': 0,
+            "newData": data.lines[0].block.text
+        },
+        success: function(msg){
+            alert('wow' + msg);
+        }
+    });
+
       if (data.confidence < 85) {
         $("#error-line").text(
           "Distorted/Blurry Image please upload clear image."

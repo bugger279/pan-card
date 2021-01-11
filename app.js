@@ -5,6 +5,9 @@ const ejs = require("ejs");
 const app = express();
 const fs = require("fs");
 const Tesseract = require('tesseract.js');
+const { send } = require("process");
+app.use(express.json());
+app.use(express.urlencoded());
 
 // multer configuration
 const storage = multer.diskStorage({
@@ -50,6 +53,14 @@ function save(item, path = './scannedData.json'){
   }
 }
 
+const currentdate = new Date(); 
+const datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
 // public folder
 app.use(express.static("./public"));
 app.set("view engine", "ejs");
@@ -78,11 +89,6 @@ app.post("/upload", (req, res) => {
               Tesseract.recognize(`./public/uploads/${req.file.filename}`, 'eng', {
                 logger: m => console.log(m),
               }).then(({data: {text}}) => {
-                const jsonData = {
-                  "index": text[0],
-                  "new-data": text
-                }
-                save(jsonData);
                 res.render("index", {
                   msg: "File Uploaded.",
                   file: `uploads/${req.file.filename}`,
@@ -100,7 +106,18 @@ app.post("/upload", (req, res) => {
   });
 });
 
-app.post('/postingData');
+app.post('/postingData', (req, res) => {
+  const textData = req.body.newData;
+  console.log(req.body);
+  const jsonData = {
+    "time": datetime,
+    "new-data": textData
+  }
+  save(jsonData);
+  res.send("textData");
+});
+
+app
 
 app.listen(process.env.PORT || 5000, (err) => {
   if (err) {
