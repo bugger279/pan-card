@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -11,7 +10,6 @@
     <script src="../scripts/tesseract.min.js"></script>
     <link rel="stylesheet" href="../css/ocr.css">
 </head>
-
 <body>
     <main>
         <div class="container mt-3">
@@ -20,7 +18,6 @@
                     <select id="langsel">
                         <option value='ben'> Bengali </option>
                         <option value='eng' selected> English </option>
-                        <option value='enm'> English (Old) </option>
                         <option value='hin'> Hindi </option>
                         <option value='kan'> Kannada </option>
                         <option value='mal'> Malayalam </option>
@@ -43,8 +40,9 @@
             <div class="margin-pattern">
                 <div class="row">
                     <div class="col-12 col-md-5">
-                        <div class="image-container"><img id="selected-image" src="/images/panStructure.jpg"
-                                class="col-12 p-0" /></div>
+                        <div class="image-container">
+                            <img id="selected-image" src="/images/panStructure.jpg"class="col-12 p-0" />
+                        </div>
                     </div>
                     <div class="col-12 col-md-1">
                         <i id="arrow-right" class="fas fa-arrow-right d-none d-md-block"></i>
@@ -63,14 +61,12 @@
             <div class="row">
                 <div class="col-12 col-md-5">
                     <div class="error-container">
-                        <p id="error-line"></p>
+                        <p style="margin-top: 10px;" id="error-line"></p>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
     <script src="../scripts/tesseract-ocr.js"></script>
 </body>
-
 </html>
