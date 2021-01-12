@@ -128,7 +128,7 @@ function recognizeFile(file) {
             "newData": data.lines[0].block.text
         },
         success: function(msg){
-            alert('wow' + msg);
+            console.log("Data sent successfully")
         }
     });
 
