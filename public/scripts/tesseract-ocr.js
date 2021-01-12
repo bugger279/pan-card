@@ -132,7 +132,7 @@ function recognizeFile(file) {
         }
     });
 
-      if (data.confidence < 85) {
+      if (data.confidence > 85) {
         $("#error-line").text(
           "Distorted/Blurry Image please upload clear image."
         );
