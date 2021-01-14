@@ -116,6 +116,11 @@ app.post('/postingData', (req, res) => {
   res.send("Data Uploaded successfully");
 });
 
+const jsonFile = require('./scannedData.json');
+app.get('/viewData', (req, res) => {
+  res.send(jsonFile);
+})
+
 app.listen(process.env.PORT || 5000, (err) => {
   if (err) {
     console.log(err.message);
