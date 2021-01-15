@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap');
 #log > div { color: #313131; border-top: 1px solid #dadada; padding: 9px; display: flex; }
 #log > div:first-child { border: 0; }
 .status { min-width: 250px; }
@@ -30,3 +31,13 @@ select { padding: 12px 5px; width: 209px; }
 @media screen and (min-width: 992px) {
   #startPre{ position: absolute; top: 50px; padding: 20px; }
 }
+
+.header > .mt-3 { margin-top: 0 !important; margin-bottom: 50px; }
+.header { background: #d3394c; color: #fff; font-family: 'Josefin Sans', sans-serif; }
+.header-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 18px 0 12px; }
+.logo h1 { margin-bottom: 0; line-height: 1; }
+.header-app-name { font-size: 20px; }
+
+.main-container { min-height: 77vh; }
+.footer { background: #d3394c; color: #fff; font-size: 12px; text-align: center; padding: 8px 0; }
+.footer-wrapper p { margin: 0; }
